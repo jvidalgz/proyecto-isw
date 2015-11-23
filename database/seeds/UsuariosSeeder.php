@@ -1,22 +1,27 @@
 <?php
 use Illuminate\Database\Seeder;
+use App\Usuario;
 
-class UsuariosSeeder extends Seeder{
 
-public function run(){
+class UsuariosSeeder extends Seeder
+{
 
-    $faker = \Faker\Factory::create();
+    public function run()
+    {
 
-    for ($i = 0; $i < 100; $i++) {
-        \DB::table('usuarios')->insert([
-        'nombre' => $faker->name,
-        'apellido_p'=>$faker->lastName,
-        'apellido_m'=>$faker->lastName,
-        'email'=>$faker->email
-        ]);
+        $faker = \Faker\Factory::create();
+
+        for ($i = 0; $i < 100; $i++) {
+
+            Usuario::create([
+                'nombre' => $faker->name,
+                'apellido_p' => $faker->lastName,
+                'apellido_m' => $faker->lastName,
+                'email' => $faker->email
+            ]);
+        }
+
     }
-}
-
-
 
 }
+
