@@ -17,29 +17,45 @@ class UsuariosController extends Controller {
 	{
 		$usuarios = Usuario::all();
 
-		return $usuarios;
+		return view('usuarios.index', compact('usuarios'));
 	}
 
 	/**
-	 * Show the form for creating a new resource.
+	 * Muestra formulario para crear nuevo usuario
 	 *
 	 * @return Response
 	 */
-	public function create()
+		public function create()
 	{
-		//
+		return view('usuarios.create');
 	}
 
 	/**
-	 * Store a newly created resource in storage.
+	 * Almacena un nuevo usuario
 	 *
 	 * @return Response
 	 */
+
 	public function store()
-	{
-		//
-	}
 
+	{
+
+		$usuario = new Usuario();
+		$usuario->nombre = \Input::get('nombre');
+		$usuario->apellido_p = \Input::get('apellido_p');
+		$usuario->apellido_m = \Input::get('apellido_m');
+		$usuario->email = \Input::get('email');
+		$exito=$usuario->save();
+
+		if ($exito) {
+			return "Almacenado con exito";
+		} else {
+			return "No se guardo";
+		}
+
+
+
+	}
 	/**
 	 * Muestra usuario especifico
 	 *
@@ -50,18 +66,19 @@ class UsuariosController extends Controller {
 	{
 		$usuario = Usuario::find($id);
 
-		return $usuario;
+		return view('usuarios.show', compact('usuario'));
 	}
 
 	/**
-	 * Show the form for editing the specified resource.
+	 * Muestra el formulario para editar un usuario
 	 *
-	 * @param  int  $id
+	 * @param  int  $ide
 	 * @return Response
 	 */
 	public function edit($id)
 	{
-		//
+		$usuario = Usuario::find($id);
+		return view('usuarios.edit', compact('usuario',$usuario));
 	}
 
 	/**
@@ -72,18 +89,18 @@ class UsuariosController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
-	}
+	//
+}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+/**
+ * Remove the specified resource from storage.
+ *
+ * @param  int  $id
+ * @return Response
+ */
+public function destroy($id)
+{
+	//
+}
 
 }
