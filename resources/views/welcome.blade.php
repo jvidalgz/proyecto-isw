@@ -41,6 +41,7 @@
 		<div class="container">
 			<div class="content">
 				<div class="title">Laravel 5</div>
+				<img src="http://vignette3.wikia.nocookie.net/randommlg/images/d/db/Deal_with_it_glasses_by_stewartisme-d5tuvbk.png/revision/latest?cb=20150714215358&path-prefix=es">
 				<div class="quote">{{ Inspiring::quote() }}</div>
 			</div>
 		</div>
