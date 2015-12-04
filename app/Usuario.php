@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Usuario extends Model {
+class Usuario extends Model
+{
 
     protected $table = 'usuarios';
     protected $primaryKey = 'id';
@@ -12,7 +13,8 @@ class Usuario extends Model {
         'nombre',
         'apellido_p',
         'apellido_m',
-        'email'
+        'email',
+        'url_avatar'
     ];
 
 }
