@@ -1,18 +1,29 @@
-{!! Form::open(array('url' => 'usuarios')) !!}
+@extends('master-layout')
+    @section('contenido')
+        {!! Form::open(['url' => 'usuarios','class'=>'form-horizontal']) !!}
+            <div class="form-group">
+                {!! Form::label('nombre', 'Nombre',['class'=>'control-label']) !!}
+                {!! Form::text('nombre', null,['class'=>'form-control']) !!}
+            </div>
 
-    {!! Form::label('nombre', 'Nombre') !!}
-    {!! Form::text('nombre', '',array('placeholder' => 'Lalo','autocomplete'=>'off')) !!}
+            <div class="form-group">
+                {!! Form::label('apellido_p', 'Apellido Paterno',['class'=>'control-label']) !!}
+                {!! Form::text('apellido_p', null,['class'=>'form-control']) !!}
+            </div>
 
-    {!! Form::label('apellido_p', 'Apellido Paterno') !!}
-    {!! Form::text('apellido_p', 'Landa') !!}
+            <div class="form-group">
+                {!! Form::label('apellido_m', 'Apellido Materno',['class'=>'control-label']) !!}
+                {!! Form::text('apellido_m', null,['class'=>'form-control']) !!}
+            </div>
 
-    {!! Form::label('apellido_m', 'Apellido Materno') !!}
-    {!! Form::text('apellido_m', 'Landa') !!}
+            <div class="form-group">
+                {!! Form::label('email', 'Email',['class'=>'control-label']) !!}
+                {!! Form::text('email', null,['class'=>'form-control']) !!}
+            </div>
 
-    {!! Form::label('email', 'Email') !!}
-    {!! Form::text('email', 'example@gmail.com') !!}
+            <div class="form-group">
+                {!! Form::submit('Guardar',['class'=>'btn btn-success']) !!}
+            </div>
 
-    {!! Form::submit('Guardar') !!}
-
-{!! Form::close() !!}
-
+        {!! Form::close() !!}
+    @stop
