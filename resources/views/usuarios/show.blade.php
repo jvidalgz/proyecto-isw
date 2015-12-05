@@ -21,7 +21,7 @@
 
             <div class="span2">
                 <div class="btn-group">
-                    <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
+                    <a class="btn dropdown-toggle btn-primary" data-toggle="dropdown" href="#">
                         Acción
                         <span class="icon-cog icon-white"></span><span class="caret"></span>
                     </a>
