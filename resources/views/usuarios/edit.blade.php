@@ -1,5 +1,10 @@
 @extends('master-layout')
     @section('contenido')
+        <ol class="breadcrumb">
+            <li><a href="{!! URL::to('usuarios') !!}">Usuarios</a></li>
+            <li><a href="{!! URL::to('usuarios/'. $usuario->id) !!}">{!! $usuario->nombre !!}</a></li>
+            <li class="active">Editando</li>
+        </ol>
 
         {!! Form::model($usuario,['route'=>['usuarios.update',$usuario],'method'=> 'PUT','class' =>'form-horizontal']) !!}
 
