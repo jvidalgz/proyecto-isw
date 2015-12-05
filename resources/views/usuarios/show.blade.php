@@ -1,11 +1,10 @@
 @extends('master-layout')
 
 @section('contenido')
-    <div class="container-fluid well span6">
-    <div class="row-fluid">
-        <div class="span2" >
-            <img src="{!! $usuario->url_avatar !!}" width="100" alt="avatar" class="img-thumbnail">
-        </div>
+    <ol class="breadcrumb">
+        <li><a href="{!! URL::to('usuarios') !!}">Usuarios</a></li>
+        <li class="active">{!! $usuario->nombre !!}</li>
+    </ol>
 
         <div class="span8">
             <h3>Usuario: {!! $usuario->nombre !!}</h3>
