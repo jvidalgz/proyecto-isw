@@ -1,5 +1,8 @@
 @extends('master-layout')
     @section('contenido')
+        <ol class="breadcrumb">
+            <li class="active">Usuarios</li>
+        </ol>
         <table class="table table-bordered">
             <th>Nombre</th>
             <th>Apellido Paterno</th>
