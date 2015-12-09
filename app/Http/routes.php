@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'WelcomeController@index');
+Route::get('/deal-with-it', 'WelcomeController@deal');
+Route::get('/deal-with-it-extreme', 'WelcomeController@dealExtreme');
 
 Route::get('home', 'HomeController@index');
 
