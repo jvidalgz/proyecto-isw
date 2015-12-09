@@ -44,7 +44,7 @@
 				<img src="http://i.imgur.com/wC5Wnc4.gif">
 				<div class="quote">{{ Inspiring::quote() }}</div>
 				<audio hidden="true" autoplay="autoplay" controls="controls">
-					<source src="sound/next.mp3" />
+					<source src="{!! asset('sound/next.mp3') !!}" />
 				</audio>
 			</div>
 		</div>
