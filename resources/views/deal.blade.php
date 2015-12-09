@@ -44,7 +44,7 @@
 				<img src="http://gifsec.com/wp-content/uploads/GIF/2014/03/Deal-with-it-glasses-gif.gif?gs=a">
 				<div class="quote">{{ Inspiring::quote() }}</div>
 				<audio hidden="true" autoplay="autoplay" controls="controls">
-					<source src="{!! URL::to('sound/next.mp3') !!}" />
+					<source src="{!! asset('sound/next.mp3') !!}" />
 
 				</audio>
 			</div>
