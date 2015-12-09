@@ -33,4 +33,24 @@ class WelcomeController extends Controller {
 		return view('welcome');
 	}
 
+	/**
+	 * Show the deal with it screen to the user.
+	 *
+	 * @return Response
+	 */
+	public function deal()
+	{
+		return view('deal');
+	}
+
+	/**
+	 * Show the deal with it extreme screen to the user.
+	 *
+	 * @return Response
+	 */
+	public function dealExtreme()
+	{
+		return view('deal-extreme');
+	}
+
 }
