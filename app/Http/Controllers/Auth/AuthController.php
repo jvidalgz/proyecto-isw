@@ -78,4 +78,33 @@ class AuthController extends Controller {
         return view('auth.login');
     }
 
+    /**
+     * Maneja los datos de inicio de sesión
+     * (los datos enviados desde el formulario entregado por la función getLogin de este Controlador)     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function postLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|email', 'password' => 'required',
+        ]);
+
+        $credentials = $request->only('email', 'password');
+
+        if ($this->auth->attempt($credentials, $request->has('remember')))
+        {
+            // Si la autenticación fué correcta:
+            return redirect()->intended($this->redirectPath());
+        }
+
+        // Si los datos de inicio de sesión fueron incorrectos, se vuelve a mostrar formulario de inicio de sesión junto
+        // a los errores
+        return redirect($this->loginPath())
+            ->withInput($request->only('email', 'remember'))
+            ->withErrors([
+                'email' => $this->getFailedLoginMessage(),
+            ]);
+    }
+
 }
