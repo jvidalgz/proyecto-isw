@@ -35,7 +35,7 @@ class RedirectIfAuthenticated {
 	{
 		if ($this->auth->check())
 		{
-			return new RedirectResponse(url('/home'));
+			return new RedirectResponse(url('/usuarios')); // si el usuario ya inicio sesión, será redireccioado
 		}
 
 		return $next($request);
