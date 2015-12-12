@@ -107,4 +107,16 @@ class AuthController extends Controller {
             ]);
     }
 
+	/**
+	 * Cierra sesión de usuario
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function getLogout()
+	{
+		$this->auth->logout();
+
+		return redirect('/');
+	}
+
 }
