@@ -67,4 +67,15 @@ class AuthController extends Controller {
 
 		return redirect($this->redirectPath());
 	}
+
+    /**
+     * Muestra el formulario para iniciar sesión
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getLogin()
+    {
+        return view('auth.login');
+    }
+
 }
