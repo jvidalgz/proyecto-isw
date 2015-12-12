@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class UsuariosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
 
     /**
      * Muestra todos los usuarios
