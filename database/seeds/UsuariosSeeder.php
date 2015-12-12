@@ -27,13 +27,14 @@ class UsuariosSeeder extends Seeder
             'https://avatars.githubusercontent.com/u/5294180',
         ];
 
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 10; $i++) {
 
             Usuario::create([
                 'nombre' => $faker->name,
                 'apellido_p' => $faker->lastName,
                 'apellido_m' => $faker->lastName,
                 'email' => $faker->email,
+                'password' => \Hash::make(str_random(60)),
                 'url_avatar'=>$faker->randomElement($avatar)
             ]);
         }
