@@ -17,7 +17,9 @@ class CreateTableUsuarios extends Migration {
 			$table->string('nombre');
 			$table->string('apellido_p',64);
 			$table->string('apellido_m',64);
-			$table->string('email', 128);
+			$table->string('email')->unique();
+			$table->string('password', 60);
+			$table->rememberToken();
 			$table->string('url_avatar', 47);
 			$table->softDeletes();
 			$table->timestamps();
