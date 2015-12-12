@@ -31,16 +31,18 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link Ejemplo</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown ejemplo <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Acción</a></li>
-                            <li><a href="#">Otra Acción</a></li>
-                            <li><a href="#">Algo más acá</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Link separado</a></li>
-                        </ul>
+                        @if(Auth::check())
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{!! Auth::user()->nombre !!} <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{!! URL::to('auth/logout') !!}">Cerrar Sesión</a></li>
+                            </ul>
+                        @else
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="{!! URL::to('auth/register') !!}">Registrarse</a></li>
+                                <li><a href="{!! URL::to('auth/login') !!}">Inicio sesión</a></li>
+                            </ul>
+                        @endif
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
