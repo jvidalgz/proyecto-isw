@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller {
 
@@ -32,6 +33,10 @@ class AuthController extends Controller {
 		$this->auth = $auth;
 		$this->registrar = $registrar;
 
+        /**
+         * Si el usuario ya inició sesión, no podrá ingresar a ninguna de las funciones de exte Controlador,
+         * solamente podrá ingresar a la función getLogout
+         */
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
