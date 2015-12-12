@@ -13,7 +13,7 @@ Este proyecto fue creado con el propósito de mostrar las funcionalidades básic
 
 ## Documentación oficial de Laravel
 
-La documentacion oficial del framework Laravel puede ser encontrada acá: [Laravel website](http://laravel.com/docs).
+La documentacion oficial del framework Laravel puede ser encontrada acá: [Laravel website](http://laravel.com/docs/5.0).
 
 ### License
 
