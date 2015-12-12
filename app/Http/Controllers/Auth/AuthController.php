@@ -119,4 +119,26 @@ class AuthController extends Controller {
 		return redirect('/');
 	}
 
+    /**
+     * Retorna la ruta para redireccionar luego de:
+     *  - Un registro exitodo de un nuevo usuario
+     *  - Después de un login exitoso
+     * @return string
+     */
+    public function redirectPath()
+    {
+        return '/usuarios';
+    }
+
+    /**
+     * Get the path to the login route.
+     *
+     * @return string
+     */
+    public function loginPath()
+    {
+        return '/auth/login';
+    }
+
+
 }
