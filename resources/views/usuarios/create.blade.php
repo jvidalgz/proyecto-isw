@@ -1,6 +1,10 @@
 @extends('master-layout')
     @section('contenido')
+
         {!! Form::open(['url' => 'usuarios','class'=>'form-horizontal']) !!}
+        @if($errors->has())
+            @include('usuarios.partials.errors')
+        @endif
             <div class="form-group">
                 {!! Form::label('nombre', 'Nombre',['class'=>'control-label']) !!}
                 {!! Form::text('nombre', null,['class'=>'form-control']) !!}
