@@ -92,17 +92,42 @@ class UsuariosController extends Controller
      */
     public function update($id, Request $request)
     {
-        $usuario = Usuario::find($id);
-        $usuario->nombre = $request->input('nombre');
-        $usuario->apellido_p = $request->input('apellido_p');
-        $usuario->apellido_m = $request->input('apellido_m');
-        $usuario->email = $request->input('email');
-        $exito= $usuario->save();
-        if ($exito){
-            return "Actualizado correctamente";
-        } else {
-            return "No se actualizo";
+       $input =[
+           'nombre'      => $request->input('nombre'),
+           'apellido_p'  => $request->input('apellido_p'),
+           'apellido_m'  => $request->input('apellido_m'),
+           'email'       => $request->input('email'),
+       ];
+
+        $rules= [
+            'nombre'     => 'required',
+            'apellido_p' => 'required',
+            'apellido_m' => 'required',
+            'email'      =>'required|email'
+        ];
+
+        $validator = Validator::make($input, $rules);
+
+        if ($validator->fails()){
+
+            return redirect()->to('usuarios/'.$id.'/edit')
+                ->withInput()
+                ->withErrors($validator->messages());
+        }else{
+
+            $usuario = Usuario::find($id);
+            $usuario->nombre = $request->input('nombre');
+            $usuario->apellido_p = $request->input('apellido_p');
+            $usuario->apellido_m = $request->input('apellido_m');
+            $usuario->email = $request->input('email');
+            $usuario->save();
+
+            return redirect()->to('usuarios')->with('message', 'Usuario actualizado correctamente');
         }
+
+
+
+
 
     }
 
