@@ -32,12 +32,12 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        @if(Auth::check())
+                        @if(Auth::check()) <!-- Si se inició sesión -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{!! Auth::user()->nombre !!} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{!! URL::to('auth/logout') !!}">Cerrar Sesión</a></li>
                             </ul>
-                        @else
+                        @else <!-- Si es invitado -->
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="{!! URL::to('auth/register') !!}">Registrarse</a></li>
                                 <li><a href="{!! URL::to('auth/login') !!}">Inicio sesión</a></li>
@@ -57,5 +57,6 @@
         {!! Html::script('js/jquery-1.11.3.min.js') !!}
         <!-- Plugins JavaScript de Bootstrap-->
         {!! Html::script('js/bootstrap.min.js') !!}
+        @yield('custom-scripts')
     </body>
 </html>
