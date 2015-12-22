@@ -6,6 +6,11 @@
             <li class="active">Editando</li>
         </ol>
 
+        @if($errors->has())
+            @include('usuarios.partials.errors')
+        @endif
+
+
         {!! Form::model($usuario,['route'=>['usuarios.update',$usuario],'method'=> 'PUT','class' =>'form-horizontal']) !!}
 
            <div class="form-group">
