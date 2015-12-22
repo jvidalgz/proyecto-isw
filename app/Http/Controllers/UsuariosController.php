@@ -38,7 +38,7 @@ class UsuariosController extends Controller
 
     /**
      * Almacena un nuevo usuario
-     *
+     * @param Request $request
      * @return Response
      */
 
