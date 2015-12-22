@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class UsuariosController extends Controller
 {
@@ -44,19 +45,52 @@ class UsuariosController extends Controller
 
     public function store(Request $request)
     {
+        // Se capturan los datos, provenientes desde el formulario,
+        // por medio del objeto $request.
+        $input = [
+            'nombre'     => $request->input('nombre'),
+            'apellido_p' => $request->input('apellido_p'),
+            'apellido_m' => $request->input('apellido_m'),
+            'email'      => $request->input('email')
 
-        $usuario = new Usuario();
-        $usuario->nombre = \Input::get('nombre');
-        $usuario->apellido_p = \Input::get('apellido_p');
-        $usuario->apellido_m = \Input::get('apellido_m');
-        $usuario->email = \Input::get('email');
-        $exito = $usuario->save();
+        ];
 
-        if ($exito) {
-            return "Almacenado con exito";
+        // Se establecen las reglas que deben cumplir los datos.
+        $rules = [
+            'nombre' => 'required',
+            'apellido_p' => 'required',
+            'apellido_m' => 'required',
+            'email' => 'required|email',
+        ];
+
+        // Los datos se validan
+        $validation = Validator::make($input, $rules);
+
+
+        if ($validation->fails()) {
+            // Si la validación falla, se redirige al usuario a la misma ruta desde donde venían los
+            // datos ('usuarios/create') junto con los mensajes de error.
+            return redirect()->to('usuarios/create')
+                ->withInput() // retorna los inputs que se hicieron en el formulario, para que el usuario los arregle
+                ->withErrors($validation->errors());
+
         } else {
-            return "No se guardo";
+            // Si la validación es correcta, se crea el nuevo usuario
+            $usuario = new Usuario();
+            $usuario->nombre = $request->input('nombre');
+            $usuario->apellido_p = $request->input('apellido_p');
+            $usuario->apellido_m = $request->input('apellido_m');
+            $usuario->email = $request->input('email');
+            $usuario->save();
+
+            // Luego del almacenamiento del nuevo usuario, se redirige a la ruta 'usuarios' junto con un mensaje.
+            return redirect()->to('usuarios')->with('message', 'Usuario registrado exitosamente');
+
         }
+
+
+
+
 
 
     }
