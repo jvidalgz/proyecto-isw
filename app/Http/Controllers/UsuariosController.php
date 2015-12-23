@@ -161,10 +161,6 @@ class UsuariosController extends Controller
             return redirect()->to('usuarios')->with('message', 'Usuario actualizado correctamente');
         }
 
-
-
-
-
     }
 
     /**
