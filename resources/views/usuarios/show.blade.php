@@ -40,4 +40,35 @@
             </div> <!-- /span2 -->
         </div> <!-- /row-fluid -->
     </div> <!-- /well span6 -->
+    @section('custom-scripts')
+        {!!Html::script('js/bootbox.min.js')!!}
+        <script>
+            $(function () {
+                $("[data-submit-confirm-text]").click(function(e){
+                    var $el = $(this);
+                    e.preventDefault();
+
+                    bootbox.confirm({
+                        title: $el.attr('data-submit-confirm-text'),
+                        message: '¿Está seguro de eliminar este Usuario?',
+                        buttons: {
+                            'cancel': {
+                                label: 'Cancelar',
+                                className: 'btn-default pull-left'
+                            },
+                            'confirm': {
+                                label: 'Eliminar',
+                                className: 'btn-danger pull-right'
+                            }
+                        },
+                        callback: function(result) {
+                            if (result) {
+                                $el.closest('form').submit();
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
+    @stop
 @stop('contenido')
