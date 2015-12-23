@@ -27,7 +27,6 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="{!! URL::to('usuarios/'.$usuario->id.'/edit')!!}"><span class="glyphicon glyphicon-edit"></span> Editar</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></li>
                         <li>
                             {!! Form::open(['url' => ['usuarios', 'id' => $usuario->id], 'method' => 'delete']) !!}
                             <button id="button" class="list-group-item" data-submit-confirm-text="{!! "Confirmación" !!}">
