@@ -171,7 +171,9 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $jugador = Usuario::find($id);
+        $jugador->delete();
+        return redirect()->to('usuarios')->with('message', 'Usuario eliminado correctamente');
     }
 
 }
