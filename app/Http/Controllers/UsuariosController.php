@@ -11,7 +11,7 @@ class UsuariosController extends Controller
     {
         // Para toda petición a alguna función de este Controlador, primero se ejecutará el Middleware que
         // verifica que el usuario ha iniciado sesión
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
 
