@@ -103,7 +103,7 @@ class UsuariosController extends Controller
      */
     public function show($id)
     {
-        $usuario = Usuario::find($id);
+        $usuario = Usuario::findOrFail($id); // Lanzará excepcion ModelNotFoundException
 
         return view('usuarios.show', compact('usuario'));
     }
