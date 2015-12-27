@@ -23,3 +23,7 @@ Route::post('auth/login', 'Auth\AuthController@postLogin'); // Recibe los datos 
 Route::get('auth/logout', 'Auth\AuthController@getLogout'); // Ruta para cerrar sesión de usuario
 
 Route::resource('usuarios','UsuariosController');
+
+Route::any('{all}', function(){
+    return view('errors.404');
+})->where('all', '.*');
