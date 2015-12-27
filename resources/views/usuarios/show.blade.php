@@ -41,7 +41,7 @@
         </div> <!-- /row-fluid -->
     </div> <!-- /well span6 -->
     @section('custom-scripts')
-        {!!Html::script('js/bootbox.min.js')!!}
+        {!! Html::script('js/bootbox.min.js')!!}
         <script>
             $(function () {
                 $("[data-submit-confirm-text]").click(function(e){
